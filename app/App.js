@@ -16,7 +16,11 @@ class App extends Component {
       >
         <Toggle
           onToggle={on => console.log('toggle', on)}
-        />
+        >
+          <Toggle.On>The button is on</Toggle.On>
+          <Toggle.Button />
+          <Toggle.Off>The button is off</Toggle.Off>
+        </Toggle>
       </div>
     );
   }
