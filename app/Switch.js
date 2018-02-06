@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Switch({ on, className = '', ...props }) {
+function Switch({ toggleState, className = '', ...props }) {
   return (
     <div className="toggle">
       <input
@@ -8,10 +8,10 @@ function Switch({ on, className = '', ...props }) {
         type="checkbox"
       />
       <button
-        className={`${className} toggle-btn ${on
+        className={`${className} toggle-btn ${toggleState
           ? 'toggle-btn-on'
           : 'toggle-btn-off'}`}
-        aria-expanded={on}
+        aria-expanded={toggleState}
         {...props}
       />
     </div>

@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import Switch from './Switch';
 
-const ToggleOn = ({ on, children }) => {
-  return on ? children : null;
+const ToggleOn = ({ toggleState, children }) => {
+  return toggleState ? children : null;
 }
 
-const ToggleOff = ({ on, children }) => (
-  on ? null : children
+const ToggleOff = ({ toggleState, children }) => (
+  toggleState ? null : children
 );
 
-const ToggleButton = ({ on, toggle, ...props }) => (
+const ToggleButton = ({ toggleState, toggle, ...props }) => (
   <Switch
-    on={on}
+    toggleState={toggleState}
     onClick={toggle}
     {...props}
   />
@@ -25,12 +25,12 @@ class Toggle extends Component {
     onToggle: () => {
     }
   }
-  state = { on: false }
+  state = { toggleState: false }
   toggle = () =>
     this.setState(
-      ({ on }) => ({ on: !on }),
+      ({ toggleState }) => ({ toggleState: !toggleState }),
       () => {
-        this.props.onToggle(this.state.on)
+        this.props.onToggle(this.state.toggleState)
       },
     );
 
@@ -38,7 +38,7 @@ class Toggle extends Component {
     const children = React.Children.map(
       this.props.children,
       child => React.cloneElement(child, {
-        on: this.state.on,
+        toggleState: this.state.toggleState,
         toggle: this.toggle,
       })
     )
