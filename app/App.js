@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Toggle from './components/Toggle';
 import MyToggle from './MyToggle';
+import AlertButton from './AlertButton';
 
 class App extends Component {
   render() {
@@ -26,6 +27,12 @@ class App extends Component {
           <br />
           <hr />
           <MyToggle />
+          <br />
+          <hr />
+          <AlertButton
+            event="onClick"
+            isToggled={e => alert(e.type)}
+          />
         </Toggle>
       </div>
     );
