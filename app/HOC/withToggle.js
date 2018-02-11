@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const TOGGLE_CONTEXT = '__TOGGLE__';
 
 function withToggle(Component) {
-  function Wrapper({innerRef, ...props}, context) {
+  function Wrapper({ innerRef, ...props }, context) {
     const toggleContext = context[TOGGLE_CONTEXT];
     return (
       <Component
@@ -20,7 +20,7 @@ function withToggle(Component) {
   };
 
   Wrapper.displayName = `withToggle(${Component.displayName || Component.name})`;
-
+  Wrapper.WrappedComponent = Component;
   return Wrapper;
 }
 
