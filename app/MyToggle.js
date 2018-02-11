@@ -1,8 +1,10 @@
 import React from 'react';
 import withToggle from './HOC/withToggle';
 
-const MyToggle = withToggle(({ toggle: { isToggled, toggle } }) =>
+const MyToggle = ({ toggle: { isToggled, toggle } }) => (
   <button onClick={toggle}>{isToggled ? 'on' : 'off'}</button>
 );
 
-export default MyToggle;
+const MyToggleWrapper = withToggle(MyToggle);
+
+export default MyToggleWrapper;

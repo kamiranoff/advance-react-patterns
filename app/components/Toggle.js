@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import Switch from './Switch';
 import withToggle, { TOGGLE_CONTEXT } from '../HOC/withToggle';
 
-const ToggleOn = withToggle(({ children, toggle: { isToggled } }) => {
+const ToggleOn = ({ children, toggle: { isToggled } }) => {
   return isToggled ? children : null;
-});
+};
 
-const ToggleOff = withToggle(({ children, toggle: { isToggled } }) => {
+const ToggleOff = ({ children, toggle: { isToggled } }) => {
   return isToggled ? null : children;
-});
+};
 
-const ToggleButton = withToggle(({ toggle: { isToggled, toggle }, ...props }) => {
+const ToggleButton = ({ toggle: { isToggled, toggle }, ...props }) => {
   return (
     <Switch
       toggleState={isToggled}
@@ -19,12 +19,12 @@ const ToggleButton = withToggle(({ toggle: { isToggled, toggle }, ...props }) =>
       {...props}
     />
   );
-});
+};
 
 class Toggle extends Component {
-  static On = ToggleOn;
-  static Off = ToggleOff;
-  static Button = ToggleButton;
+  static On = withToggle(ToggleOn);
+  static Off = withToggle(ToggleOff);
+  static Button = withToggle(ToggleButton);
   static defaultProps = {
     onToggle: () => {
     }

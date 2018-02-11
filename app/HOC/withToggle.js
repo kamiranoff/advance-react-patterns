@@ -18,6 +18,8 @@ function withToggle(Component) {
     [TOGGLE_CONTEXT]: PropTypes.object.isRequired,
   };
 
+  Wrapper.displayName = `withToggle(${Component.displayName || Component.name})`;
+
   return Wrapper;
 }
 
