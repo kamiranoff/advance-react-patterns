@@ -26,7 +26,10 @@ class App extends Component {
           <Toggle.Off>The button is off</Toggle.Off>
           <br />
           <hr />
+
           <MyToggleWrapper innerRef={myToggle => this.myToggle = myToggle} />
+          <hr />
+          <MyToggleWrapper.Message>Button is toggled</MyToggleWrapper.Message>
           <br />
           <hr />
           <AlertButton

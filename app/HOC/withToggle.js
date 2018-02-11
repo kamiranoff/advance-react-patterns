@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import hoistNonReactStatic from 'hoist-non-react-statics';
 
 const TOGGLE_CONTEXT = '__TOGGLE__';
 
@@ -21,6 +22,8 @@ function withToggle(Component) {
 
   Wrapper.displayName = `withToggle(${Component.displayName || Component.name})`;
   Wrapper.WrappedComponent = Component;
+
+  hoistNonReactStatic(Wrapper, Component);
   return Wrapper;
 }
 
