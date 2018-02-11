@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Switch from './Switch';
+import Switch from './../../common/Switch';
 import withToggle, { TOGGLE_CONTEXT } from '../HOC/withToggle';
 
 const ToggleOn = ({ children, toggle: { isToggled } }) => {
@@ -14,7 +14,7 @@ const ToggleOff = ({ children, toggle: { isToggled } }) => {
 const ToggleButton = ({ toggle: { isToggled, toggle }, ...props }) => {
   return (
     <Switch
-      toggleState={isToggled}
+      isToggled={isToggled}
       onClick={toggle}
       {...props}
     />

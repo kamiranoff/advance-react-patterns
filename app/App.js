@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Toggle from './components/Toggle';
-import MyToggleWrapper from './MyToggle';
-import AlertButton from './AlertButton';
+import Switch from './common/Switch';
+import Toggle from './withHOC/components/Toggle';
+
+import RPToggle from './renderProps/components/Toggle';
+import RPMyToggle from './renderProps/MyToggle';
+import MyToggleWrapper from './withHOC/MyToggle';
+import AlertButton from './withHOC/AlertButton';
 
 class App extends Component {
   render() {
@@ -16,6 +20,7 @@ class App extends Component {
           textAlign: 'center',
         }}
       >
+        <h1>With Higher Oder Component</h1>
         <Toggle
           onToggle={isToggled => isToggled ? this.myToggle.focus() : null}
         >
@@ -37,6 +42,22 @@ class App extends Component {
             isToggled={e => alert(e.type)}
           />
         </Toggle>
+
+        <h1>With Render Props</h1>
+
+        <RPToggle
+          onToggle={isToggled => console.log('toggle', isToggled)}
+          render={({ isToggled, toggle }) => (
+            <div>
+              {isToggled
+                ? 'The button is on'
+                : 'The button is off'}
+              <Switch isToggled={isToggled} onClick={toggle} />
+              <hr />
+              <RPMyToggle isToggled={isToggled} toggle={toggle} />
+            </div>
+          )}
+        />
       </div>
     );
   }
