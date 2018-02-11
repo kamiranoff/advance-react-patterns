@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Toggle from './components/Toggle';
-import MyToggle from './MyToggle';
+import MyToggleWrapper from './MyToggle';
 import AlertButton from './AlertButton';
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
         }}
       >
         <Toggle
-          onToggle={isToggled => console.log('isToggled', isToggled)}
+          onToggle={isToggled => isToggled ? this.myToggle.focus() : null}
         >
           <Toggle.On>The button is on</Toggle.On>
           <div>
@@ -26,7 +26,7 @@ class App extends Component {
           <Toggle.Off>The button is off</Toggle.Off>
           <br />
           <hr />
-          <MyToggle />
+          <MyToggleWrapper innerRef={myToggle => this.myToggle = myToggle} />
           <br />
           <hr />
           <AlertButton

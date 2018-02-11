@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 const TOGGLE_CONTEXT = '__TOGGLE__';
 
 function withToggle(Component) {
-  function Wrapper(props, context) {
+  function Wrapper({innerRef, ...props}, context) {
     const toggleContext = context[TOGGLE_CONTEXT];
     return (
       <Component
-        {...props}
+        ref={innerRef}
         toggle={toggleContext}
+        {...props}
       />
     );
   }
