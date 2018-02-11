@@ -8,10 +8,10 @@ function Switch({ isToggled, className = '', ...props }) {
         type="checkbox"
       />
       <button
-        className={`${className} toggle-btn ${isToggled
+        className={`${className} toggle-btn
+        ${isToggled
           ? 'toggle-btn-on'
           : 'toggle-btn-off'}`}
-        aria-expanded={isToggled}
         {...props}
       />
     </div>

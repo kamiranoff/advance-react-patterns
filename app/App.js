@@ -47,14 +47,14 @@ class App extends Component {
 
         <RPToggle
           onToggle={isToggled => console.log('toggle', isToggled)}
-          render={({ isToggled, toggle }) => (
+          render={({ isToggled, toggle, togglerProps }) => (
             <div>
               {isToggled
                 ? 'The button is on'
                 : 'The button is off'}
-              <Switch isToggled={isToggled} onClick={toggle} />
+              <Switch isToggled={isToggled} {...togglerProps}  />
               <hr />
-              <RPMyToggle isToggled={isToggled} toggle={toggle} />
+              <RPMyToggle isToggled={isToggled} toggle={toggle} {...togglerProps} />
             </div>
           )}
         />

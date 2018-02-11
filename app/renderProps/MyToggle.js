@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-const Message = ({ children, toggle: { isToggled } }) => {
-  return isToggled ? children : null;
-}
-
-function RPMyToggle({on, toggle}) {
+function RPMyToggle({ toggle, isToggled, ...togglerProps }) {
   return (
-    <button onClick={toggle}>
-      {on ? 'on' : 'off'}
+    <button
+      onClick={toggle}
+      {...togglerProps}
+    >
+      {isToggled ? 'on' : 'off'}
     </button>
   )
 }
 
-const RPMyToggleWrapper = RPMyToggle;
-
-export default RPMyToggleWrapper;
+export default RPMyToggle;

@@ -16,6 +16,10 @@ class RPToggle extends Component {
     return this.props.render({
       isToggled: this.state.isToggled,
       toggle: this.toggle,
+      togglerProps: {
+        'aria-expanded': this.state.isToggled,
+        onClick: this.toggle,
+      }
     })
   }
 }
